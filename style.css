@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%
+}
+
+header {
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div {
+    width: 120px;
+    margin: auto; /*centralizou a img*/
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+    border-radius: 50%;
+    
+    display: flex; /*ajudou a borda ficar no meio da foto*/
+    padding: 4px;
+
+    transition: transform .4s;
+
+    animation: fromTop .7s .2s backwards;
+}
+
+header div:hover {
+    transform: scale(1.1);
+}
+
+header div img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto;
+
+    display: grid;
+    gap: 24px;
+}
+
+main .wrapper {
+    height: 1vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+}
+
+main div .typing {
+    width: 33ch;
+    text-align: center;
+
+    /* animation como se estivesse digitando */
+    animation: typing 2s steps(33), blink 5s step-end infinite alternate;    
+
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    font-weight: 900;
+
+    /* Cor do texto com gradient */
+    background-image: linear-gradient(to left, #9572FC, #43E7AD, #E2D45C);
+    background-clip: text;  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+main section {
+    color: #FFFFFF;
+
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+
+    transition: transform .4s;
+    animation: fromBottom .8s .2s backwards;
+}
+
+main section:nth-child(2){
+    animation-delay: 0;
+}
+main section:nth-child(3){
+    animation: fromLeft .8s .6s backwards;
+}
+main section:nth-child(4){
+    animation: fromRight .8s .8s backwards;
+}
+
+main section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+main section h2 {
+    letter-spacing: -0.47px;
+}
+
+main section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+main section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+main section ul li {
+    transition: transform .4s;
+}
+
+main section ul li:hover {
+    transform: scale(1.1);
+}
+
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443E54;
+}
+
+/* ANIMATION */
+
+/* Animation da imagem */
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation do texto abaixo da imagem */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    from,to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: purple;
+    }
+}
+
+/* Animation dos cards */
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
